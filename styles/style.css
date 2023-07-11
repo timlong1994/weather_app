@@ -12,10 +12,125 @@ body {
     display: flex;
     flex-direction: column;
     row-gap: 1i procra0px;
-    background-color: gainsboro;
+    background-color: white;
     margin: 10px;
 }
 
-.search_bar {
-    width: 50%;
+h1 {
+    margin: auto 9% 40px 9%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+}
+
+#search_bar {
+    width: 80%;
+    text-align: center;
+    border-radius: 5px;
+    border-color: #9775fa;
+    border-style: solid;
+    border-width: 1px;
+}
+
+#search_bar:{
+    border-color: red;
+}
+
+#submit {
+    border-radius: 5px;
+    border-style: solid;
+    background-color: #9775fa;
+    border-color: #9775fa;
+    color: white;
+    font-weight: 600;
+    height: 30px;
+}
+
+
+#submit:hover {
+    background-color: #7950f2;
+    border-color: #7950f2;
+    cursor: pointer;
+}
+
+#submit:target {
+    background-color: #6741d9;
+    border-color: #6741d9;
+}
+
+#search_result {
+    text-align: center;
+}
+
+/* Tablet Breakpoint */
+@media only screen and (min-width: 600px) {
+    body {
+        font-size: 20pt;
+        text-align: center;
+    }
+
+    h1 {
+        margin-top: 180px;
+    }
+
+    form {
+        justify-content: center;
+        margin: 20px auto 40px auto;
+    }
+
+    #search_bar {
+        width: 60vmin;
+        height: 40px;
+        border-radius: 5px;
+        border-color: #9775fa;
+        border-style: solid;
+        border-width: 1px;
+        font-size: 20pt;
+    }
+
+    #submit {
+        height: 46px;
+        font-size: 20pt;
+    }
+}
+
+
+/* Desktop Breakpoint */
+@media only screen and (min-width: 850px) {
+    body {
+        font-size: 30pt;
+    }
+
+    h1 {
+        margin-top: 80px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: row;
+        column-gap: 20px;
+        justify-content: center;
+        margin: 120px auto 80px auto;
+    }
+
+    #search_bar {
+        width: 45vmin;
+        height: 40px;
+        text-align: left;
+        border-radius: 5px;
+        border-color: #9775fa;
+        border-style: solid;
+        border-width: 1px;
+        font-size: 24pt;
+    }
+
+    #submit {
+        height: 46px;
+        font-size: 24pt;
+    }
+    
 }

@@ -1,26 +1,27 @@
 const API_KEY = "1c5a98bf8b524cf5bb3185319230507";
 const API_URL = "http://api.weatherapi.com/v1/current.json?";
+const locationName = document.getElementById("get_location");
+locationName.addEventListener("submit", returnSearchResult);
 
-async function displayWeather(weatherReport) {
+function displayWeather(weatherReport) {
     document.getElementById("weather").innerHTML = weatherReport;
 } 
 
 function concatURL(city) {
-    return API_URL.concat("key=", API_KEY, "&q=", city);
+    return (API_URL + "key=" + API_KEY + "&q=" + city);
 }
 
-async function getweather(url) {
+async function getWeather(url) {
     const response = await fetch(url);
     let weatherReport = await response.json();
     
     displayWeather(weatherReport.current.condition.text)
 }
 
-async function getWeather(event) {
+async function returnSearchResult(event) {
     let location = locationName.q.value;
     let url = await concatURL(location);
-    getweather(url);
+
+    getWeather(url);
     event.preventDefault();
 }
-const locationName = document.getElementById("get_location");
-locationName.addEventListener("submit", getWeather);

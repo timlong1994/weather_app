@@ -20,38 +20,39 @@ async function getWeather(url) {
     const response = await fetch(url);
     let weatherReport = await response.json()
 
-    try {
-        return weatherReport.current.condition.text;
-    } catch (undefined) {
-        return weatherReport.error.code;
-    }
+    return weatherReport
+}
+
+function isValidWeatherReport(weatherReport) {
+    return (weatherReport.current !== undefined)
 }
 
 async function returnSearchResult() {
     let url = concatURL();
     let weather = await getWeather(url);
 
-    switch(weather) {
-        case 1003:
-            displayError("Search bar must have input");
-            break;
-        case 1006:
-            displayError("Please enter a valid location");
-            break;
-        case 9001:
-            displayError("Too many locations: please reduce the number of locations");
-            break;
-        case 1002:
-        case 1005:
-        case 2006:
-        case 2007:
-        case 2008:
-        case 2009:
-        case 9000:
-        case 9999:
-            displayError("We fucked up and are trying our best to fix it, please try again later");
-            break;
-        default:
-            displayResult(weather);
+    if (isValidWeatherReport(weather)) {
+        displayResult(weather.current.condition.text);
+    } else {
+        switch(weather.error.code) {
+            case 1003:
+                displayError("Search bar must have input");
+                break;
+            case 1006:
+                displayError("Please enter a valid location");
+                break;
+            case 9001:
+                displayError("Too many locations: please reduce the number of locations");
+                break;
+            default:
+                displayError("Something wrong happened on our side, please try again later.");
+        }
     }
 }
+
+
+
+
+
+
+

@@ -1,60 +1,57 @@
-//const myHeading = document.querySelector("h1");
-//myHeading.textContent = "Hello world!";
-
-
 const API_KEY = "1c5a98bf8b524cf5bb3185319230507";
+const API_URL = "http://api.weatherapi.com/v1/current.json?";
 
-//testing stuff please ignore
-
-const newCity = {
-    firstName: "",
-    cityName: document.getElementById("search_bar")
-} 
-
-let cityName = document.getElementById("sampleform");
+const locationName = document.getElementById("get_location");
 
 
-newCity.firstName = document.getElementById("search_bar").onsubmit;
-
-const sampleform = document.getElementById("search_bar");
-
-
-async function printSearchResult(weatherReport) {
-    document.getElementById("weather").innerHTML = weatherReport;
-} 
-
-function apiURL(city) {
-    url = "http://api.weatherapi.com/v1/current.json?key=1c5a98bf8b524cf5bb3185319230507&q=";
-    return url.concat(city);
+function displayResult(weather) {
+    document.getElementById("search_result").innerHTML = `It's ${weather} in ${locationName.q.value} right now`;
 }
 
-async function getweather(url) {
+function displayError(error_message) {
+    document.getElementById("search_result").innerHTML = error_message;
+}
+
+function concatURL() {
+    return (`${API_URL}key=${API_KEY}&q=${locationName.q.value}`);
+}
+
+async function getWeather(url) {
     const response = await fetch(url);
-    var data = await response.json();
-    
-    printSearchResult(data.current.condition.text)
+    let weatherReport = await response.json()
+
+    try {
+        return weatherReport.current.condition.text;
+    } catch (undefined) {
+        return weatherReport.error.code;
+    }
 }
 
-async function getCityName() {
-    console.log(document.getElementById("submit"));
-    newCity.firstName = document.getElementById("search_bar").onsubmit;
-    url = apiURL(newCity.firstName);
+async function returnSearchResult() {
+    let url = concatURL();
+    let weather = await getWeather(url);
 
-    const response = await fetch(url);
-    var data = await response.json();
-    const sampleform = await document.getElementById("fsearch_bar");
-    console.log(data);
-    printSearchResult(data.current.condition.text);
-    console.log(sampleform.value);
+    switch(weather) {
+        case 1003:
+            displayError("Search bar must have input");
+            break;
+        case 1006:
+            displayError("Please enter a valid location");
+            break;
+        case 9001:
+            displayError("Too many locations: please reduce the number of locations");
+            break;
+        case 1002:
+        case 1005:
+        case 2006:
+        case 2007:
+        case 2008:
+        case 2009:
+        case 9000:
+        case 9999:
+            displayError("We fucked up and are trying our best to fix it, please try again later");
+            break;
+        default:
+            displayResult(weather);
+    }
 }
-
-
-async function getWeather(event) {
-    let weather = city.q.value;
-    let searchurl = await apiURL(weather);
-    getweather(searchurl);
-    event.preventDefault();
-}
-const city = document.getElementById("sampleform")
-const comeon = document.getElementById("city");
-city.addEventListener("submit", getWeather);

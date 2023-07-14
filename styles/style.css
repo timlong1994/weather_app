@@ -11,55 +11,69 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    row-gap: 1i procra0px;
     background-color: white;
     margin: 10px;
 }
 
-h1 {
-    margin: auto 9% 40px 9%;
+h2 {
+    text-align: center;
+    margin: 40px 9% 10px 9%;
 }
 
 form {
+    height: 40px;
     display: flex;
-    flex-direction: column;
-    row-gap: 20px;
+    flex-direction: row;
+    column-gap: 10px;
+    flex-basis: auto; 
+    justify-content: center;
     align-items: center;
+    align-content: center;
+    align-self: center;
+    border-radius: 15px;
+    background-color: #f3f0ff;
+    border-width: 10px;
+    border-color: #6741d9;
+    box-shadow: inset 1px 1px #d0bfff;
+    padding: 10px;
 }
 
 #search_bar {
-    width: 80%;
+    width: 200px;
+    height: 30px;
     text-align: center;
     border-radius: 5px;
-    border-color: #9775fa;
+    border-color: #b197fc;
     border-style: solid;
     border-width: 1px;
+    box-shadow: inset
 }
 
-#search_bar:{
+/*#search_bar:focus{
     border-color: red;
-}
+}*/
 
 #submit {
     border-radius: 5px;
     border-style: solid;
-    background-color: #9775fa;
-    border-color: #9775fa;
+    background-color: #b197fc;
+    border-color: #b197fc;
     color: white;
     font-weight: 600;
-    height: 30px;
+    height: 28px;
+    width: auto;
 }
 
 
 #submit:hover {
-    background-color: #7950f2;
-    border-color: #7950f2;
+    background-color: #845ef7;
+    border-color: #845ef7;
     cursor: pointer;
 }
 
-#submit:target {
-    background-color: #6741d9;
-    border-color: #6741d9;
+#submit:active {
+    background-color: #7048e8;
+    border-color: #7048e8;
 }
 
 #search_result {
@@ -73,7 +87,7 @@ form {
         text-align: center;
     }
 
-    h1 {
+    h2 {
         margin-top: 180px;
     }
 
@@ -83,17 +97,13 @@ form {
     }
 
     #search_bar {
-        width: 60vmin;
+        width: 45vmin;
         height: 40px;
-        border-radius: 5px;
-        border-color: #9775fa;
-        border-style: solid;
-        border-width: 1px;
-        font-size: 20pt;
+        font-size: 18pt;
     }
 
     #submit {
-        height: 46px;
+        height: 38px;
         font-size: 20pt;
     }
 }
@@ -102,34 +112,30 @@ form {
 /* Desktop Breakpoint */
 @media only screen and (min-width: 850px) {
     body {
-        font-size: 30pt;
+        font-size: 20pt;
+        height: 100%;
+        justify-content: center;
     }
 
-    h1 {
-        margin-top: 80px;
+    h2 {
+        margin: 10px auto 10px auto;
     }
 
     form {
-        display: flex;
-        flex-direction: row;
-        column-gap: 20px;
+        column-gap: 10px;
         justify-content: center;
-        margin: 120px auto 80px auto;
+        margin: 20px auto 20px auto;
+    }
+
+    .search_result {
+        height: 80px;
     }
 
     #search_bar {
-        width: 45vmin;
-        height: 40px;
-        text-align: left;
-        border-radius: 5px;
-        border-color: #9775fa;
-        border-style: solid;
-        border-width: 1px;
-        font-size: 24pt;
+        padding-left: 10px;
     }
 
     #submit {
-        height: 46px;
         font-size: 24pt;
     }
     

@@ -11,13 +11,16 @@ html {
 body {
     display: flex;
     flex-direction: column;
-    background-color: white;
     margin: 10px;
+    background-image: url('../images/background.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h2 {
     text-align: center;
-    margin: 40px 9% 10px 9%;
+    margin: 100px 9% 10px 9%;
+    text-shadow: 2px 2px #f8f0fc;
 }
 
 form {
@@ -39,31 +42,36 @@ form {
 }
 
 #search_bar {
-    width: 200px;
-    height: 30px;
+    width: 50vmin;
+    height: 36px;
+    font-size: 14pt;
     text-align: center;
     border-radius: 5px;
-    border-color: #b197fc;
+    border-color: #f3f0ff;
+    background-color: #f3f0ff;
     border-style: solid;
     border-width: 1px;
-    box-shadow: inset
+    box-shadow: inset;
+    padding-left: 63px;
 }
 
-/*#search_bar:focus{
-    border-color: red;
-}*/
+#search_bar:focus{
+    outline: none;
+}
+
+#search_bar:focus::placeholder{
+    color: transparent;
+}
 
 #submit {
-    border-radius: 5px;
+    border-radius: 15px;
     border-style: solid;
     background-color: #b197fc;
     border-color: #b197fc;
-    color: white;
-    font-weight: 600;
-    height: 28px;
+    box-shadow: 1.5px 1.5px #d0bfff;
+    height: 34px;
     width: auto;
 }
-
 
 #submit:hover {
     background-color: #845ef7;
@@ -76,8 +84,37 @@ form {
     border-color: #7048e8;
 }
 
-#search_result {
-    text-align: center;
+.search_result {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#location {
+    text-transform:capitalize;
+    align-self: center;
+    padding: 0;
+    margin: 10px;
+    height: max-content;
+}
+
+#temperature {
+    font-size: 60pt;
+    margin: 0px;
+}
+
+#weather_icon {
+    width: 100px;
+    image-resolution: 300dpi;
+    align-self: center;
+    margin-top: 10px;
+}
+
+#forecast {
+    margin: 0px;
+    font-size: 24pt;
 }
 
 /* Tablet Breakpoint */
@@ -85,10 +122,11 @@ form {
     body {
         font-size: 20pt;
         text-align: center;
+        height: 100%;
     }
 
     h2 {
-        margin-top: 180px;
+        margin-top: 150px;
     }
 
     form {
@@ -97,7 +135,6 @@ form {
     }
 
     #search_bar {
-        width: 45vmin;
         height: 40px;
         font-size: 18pt;
     }
@@ -112,8 +149,7 @@ form {
 /* Desktop Breakpoint */
 @media only screen and (min-width: 850px) {
     body {
-        font-size: 20pt;
-        height: 100%;
+        font-size: 22pt;
         justify-content: center;
     }
 
@@ -132,11 +168,6 @@ form {
     }
 
     #search_bar {
-        padding-left: 10px;
+        padding-left: 50px;
     }
-
-    #submit {
-        font-size: 24pt;
-    }
-    
 }

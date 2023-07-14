@@ -3,13 +3,17 @@ const API_URL = "http://api.weatherapi.com/v1/current.json?";
 
 const locationName = document.getElementById("get_location");
 
+// considering turning weather into an object > const weather = {forecast:"", icon:"", temperature:""}
 
 function displayResult(weather) {
-    document.getElementById("search_result").innerHTML = `It's ${weather} in ${locationName.q.value} right now`;
+    document.getElementById("forecast").innerHTML = weather.condition.text;
+    document.getElementById("location").innerHTML = locationName.q.value;
+    document.getElementById("temperature").innerHTML = `${weather.feelslike_c}°`;
+    document.getElementById("weather_icon").src = `https:${weather.condition.icon}`;
 }
 
 function displayError(error_message) {
-    document.getElementById("search_result").innerHTML = error_message;
+    document.getElementById("forecast").innerHTML = error_message;
 }
 
 function concatURL() {
@@ -32,7 +36,7 @@ async function returnSearchResult() {
     let weather = await getWeather(url);
 
     if (isValidWeatherReport(weather)) {
-        displayResult(weather.current.condition.text);
+        displayResult(weather.current);
     } else {
         switch(weather.error.code) {
             case 1003:

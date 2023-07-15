@@ -116,6 +116,10 @@ form {
     font-size: 24pt;
 }
 
+#error_message {
+    margin: 0;
+}
+
 /* Tablet Breakpoint */
 @media only screen and (min-width: 600px) {
     body {
@@ -200,5 +204,11 @@ form {
     #search_bar {
         max-width: 360px;
         padding-left: 50px;
+    }
+
+    #error_message {
+        text-align: center;
+        grid-row: 2;
+        grid-column: 1/11;
     }
 }

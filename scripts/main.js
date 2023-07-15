@@ -13,7 +13,11 @@ function displayResult(weather) {
 }
 
 function displayError(error_message) {
-    document.getElementById("forecast").innerHTML = error_message;
+    document.getElementById("error_message").innerHTML = error_message;
+    document.getElementById("forecast").innerHTML = "";
+    document.getElementById("location").innerHTML = "";
+    document.getElementById("temperature").innerHTML = "";
+    document.getElementById("weather_icon").src = "";
 }
 
 function concatURL() {

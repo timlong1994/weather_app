@@ -58,10 +58,3 @@ async function returnSearchResult() {
             displayError("Something wrong happened on our side, please try again later.");
     }
 }
-
-
-
-
-
-
-

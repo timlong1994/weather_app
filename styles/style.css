@@ -88,38 +88,36 @@ form {
 .search_result {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    text-align: center;
+}
+
+.text_display {
+    display: inline-block;
 }
 
 #location {
     text-transform:capitalize;
-    align-self: center;
     padding: 0;
     margin: 10px;
-    height: max-content;
-    font-size: 8vmin;
-    order: 1;
+    font-size: 20pt;
+    font-weight: 600;
 }
 
 #temperature {
-    font-size: 15vmin;
-    margin: 0px;
-    order: 3;
+    font-size: 60pt;
+    font-weight: 100;
+    margin: 0 0 0 35px;
 }
 
 #weather_icon {
-    width: 100px;
-    image-resolution: 300dpi;
-    align-self: center;
-    margin-top: 10px;
-    order: 2;
+    width: 70px;
+    image-resolution: 600dpi;
 }
 
 #forecast {
     margin: 0px;
-    font-size: 10vmin;
-    order: 4;
+    font-size: 20pt;
 }
 
 #error_message {
@@ -141,17 +139,38 @@ form {
     form {
         height: 40px;
         justify-content: center;
-        margin: 20px auto 40px auto;
+        margin: 20px auto 10px auto;
+    }
+
+    #location {
+        font-size: 24pt;
+        font-weight: 600;
+    }
+    
+    #temperature {
+        font-size: 80pt;
+        font-weight: 100;
+        margin: 0 0 0 45px;
+    }
+    
+    #weather_icon {
+        width: 70px;
+        image-resolution: 600dpi;
+    }
+    
+    #forecast {
+        margin: 0px;
+        font-size: 24pt;
     }
 
     #search_bar {
+        width: 240pt;
         height: 39px;
         font-size: 18pt;
     }
 
     #submit {
         height: 40px;
-        font-size: 20pt;
     }
 }
 
@@ -173,45 +192,55 @@ form {
         margin: 20px auto 20px auto;
     }
 
-
     .search_result {
         align-self: center;
-        display: flex;
-        flex-direction: row;
-    }
-
-    #weather_icon {
-        display: block;
-        width: 120px;
-        margin: 0;
-        order: 1;
-    }
-
-    .text_display {
-        flex-direction: column;
-        order: 2;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(20px, 1fr));
+        grid-template-rows: 1fr 1fr;
+        width: 470px;
     }
 
     #location {
-        font-size: 24pt;
+        font-size: 20pt;
+        text-size-adjust: auto;
         margin: 0;
+        grid-column-end: span 2;
+        grid-row: 1;
+        text-align: left;
+        flex-wrap: wrap;
+        align-items: first baseline;
     }
 
-    .forecast_display {
-        flex-direction: column;
+    #weather_icon {
+        width: 100px;
+        margin: 0 0 -42px 60px;
+        grid-column: 3/3;
+        grid-row: 1;
+        align-self: first baseline;
     }
 
     #temperature {
         font-size: 40pt;
-        margin-bottom: 10px;
+        width: fit-content;
+        margin: 0;
+        grid-row: 2;
+        grid-column: 1;
+        text-align: left;
+        align-self: last baseline;
     }
 
     #forecast {
-
+        grid-row: 2;
+        grid-column: 3/3;
+        text
+        font-weight: 200;
+        margin-left: 10px;
+        text-align: right;
+        align-self: last baseline;
     }
 
     #search_bar {
-        max-width: 360px;
+        width: 360px;
         padding-left: 20px;
         text-overflow: clip;
     }

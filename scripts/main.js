@@ -8,7 +8,7 @@ const locationName = document.getElementById("get_location");
 function displayResult(weather) {
     document.getElementById("forecast").innerHTML = weather.condition.text;
     document.getElementById("location").innerHTML = locationName.q.value;
-    document.getElementById("temperature").innerHTML = `${weather.feelslike_c}°`;
+    document.getElementById("temperature").innerHTML = `${weather.temp_c}°`;
     document.getElementById("weather_icon").src = `https:${weather.condition.icon}`;
     document.getElementById("error_message").innerHTML = "";
 }

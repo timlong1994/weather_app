@@ -10,6 +10,7 @@ function displayResult(weather) {
     document.getElementById("location").innerHTML = locationName.q.value;
     document.getElementById("temperature").innerHTML = `${weather.feelslike_c}°`;
     document.getElementById("weather_icon").src = `https:${weather.condition.icon}`;
+    document.getElementById("error_message").innerHTML = "";
 }
 
 function displayError(error_message) {

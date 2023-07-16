@@ -195,8 +195,11 @@ form {
     .search_result {
         align-self: center;
         display: grid;
-        grid-template-columns: repeat(3, minmax(20px, 1fr));
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 0.8fr;
+        grid-template-areas:
+            "a a a b"
+            "c d d d";
         width: 470px;
     }
 
@@ -204,39 +207,33 @@ form {
         font-size: 20pt;
         text-size-adjust: auto;
         margin: 0;
-        grid-column-end: span 2;
-        grid-row: 1;
+        grid-area: a;
         text-align: left;
-        flex-wrap: wrap;
-        align-items: first baseline;
     }
 
     #weather_icon {
         width: 100px;
-        margin: 0 0 -42px 60px;
-        grid-column: 3/3;
-        grid-row: 1;
-        align-self: first baseline;
+        margin: 0 -15px -20px 60px;
+        grid-area: b;
+        align-self: end;
     }
 
     #temperature {
-        font-size: 40pt;
+        font-size: 48pt;
         width: fit-content;
-        margin: 0;
-        grid-row: 2;
-        grid-column: 1;
+        margin: 0 0 -10px 0;
+        grid-area: c;
         text-align: left;
-        align-self: last baseline;
+        align-self: end;
     }
 
     #forecast {
-        grid-row: 2;
-        grid-column: 3/3;
-        text
+        grid-area: d;
+        font-size: 22pt;
         font-weight: 200;
         margin-left: 10px;
         text-align: right;
-        align-self: last baseline;
+        align-self: end;
     }
 
     #search_bar {

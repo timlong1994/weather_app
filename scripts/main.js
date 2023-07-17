@@ -7,8 +7,8 @@ const locationName = document.getElementById("get_location");
 
 function displayResult(weather) {
     document.getElementById("forecast").innerHTML = weather.current.condition.text;
-    document.getElementById("location").innerHTML = weather.location.country;
-    document.getElementById("location_name").innerHTML = weather.location.name;
+    document.getElementById("country").innerHTML = weather.location.country;
+    document.getElementById("location").innerHTML = weather.location.name;
     document.getElementById("temperature").innerHTML = `${weather.current.temp_c}°`;
     document.getElementById("feels_like").innerHTML = `Feels like: ${weather.current.feelslike_c}°`;
     document.getElementById("weather_icon").src = `https:${weather.current.condition.icon}`;
@@ -18,8 +18,8 @@ function displayResult(weather) {
 function displayError(error_message) {
     document.getElementById("error_message").innerHTML = error_message;
     document.getElementById("forecast").innerHTML = "";
+    document.getElementById("country").innerHTML = "";
     document.getElementById("location").innerHTML = "";
-    document.getElementById("location_name").innerHTML = "";
     document.getElementById("feels_like").innerHTML = "";
     document.getElementById("temperature").innerHTML = "";
     document.getElementById("weather_icon").src = "";

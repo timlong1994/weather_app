@@ -51,7 +51,6 @@ form {
     background-color: #f3f0ff;
     border-style: solid;
     border-width: 1px;
-    box-shadow: inset;
     padding-left: 10px;
 }
 
@@ -92,32 +91,43 @@ form {
     text-align: center;
 }
 
-.text_display {
-    display: inline-block;
+#country {
+    text-transform:capitalize;
+    padding: 0;
+    margin: 0 0 10px 0;
+    font-size: 16pt;
+    font-weight: 500;
+    order: 2;
 }
 
 #location {
-    text-transform:capitalize;
-    padding: 0;
-    margin: 10px;
-    font-size: 20pt;
-    font-weight: 600;
+    font-size: 24pt;
+    font-weight: 300;
+    margin: 30px 0 10px 0;
+    order: 1;
 }
 
 #temperature {
     font-size: 60pt;
     font-weight: 100;
     margin: 0 0 0 35px;
+    order: 3;
+}
+
+#feels_like {
+    display: none;
 }
 
 #weather_icon {
     width: 70px;
     image-resolution: 600dpi;
+    order: 4;
 }
 
 #forecast {
     margin: 0px;
     font-size: 20pt;
+    order: 5;
 }
 
 #error_message {
@@ -142,7 +152,7 @@ form {
         margin: 20px auto 10px auto;
     }
 
-    #location {
+    #country {
         font-size: 24pt;
         font-weight: 600;
     }
@@ -205,7 +215,7 @@ form {
         width: 450px;
     }
 
-    #location {
+    #country {
         font-size: 18pt;
         text-size-adjust: auto;
         margin: 15px 0 5px 0;
@@ -213,7 +223,7 @@ form {
         text-align: center;
     }
 
-    #location_name {
+    #location {
         grid-area: f;
         font-weight: 200;
         margin: 0 0 25px 0;
@@ -236,6 +246,7 @@ form {
     }
 
     #feels_like {
+        display: block;
         margin: 15px -35px 0 0;
         grid-area: d;
         align-self: last baseline;

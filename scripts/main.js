@@ -6,10 +6,12 @@ const locationName = document.getElementById("get_location");
 // considering turning weather into an object > const weather = {forecast:"", icon:"", temperature:""}
 
 function displayResult(weather) {
-    document.getElementById("forecast").innerHTML = weather.condition.text;
-    document.getElementById("location").innerHTML = locationName.q.value;
-    document.getElementById("temperature").innerHTML = `${weather.temp_c}°`;
-    document.getElementById("weather_icon").src = `https:${weather.condition.icon}`;
+    document.getElementById("forecast").innerHTML = weather.current.condition.text;
+    document.getElementById("location").innerHTML = weather.location.country;
+    document.getElementById("location_name").innerHTML = weather.location.name;
+    document.getElementById("temperature").innerHTML = `${weather.current.temp_c}°`;
+    document.getElementById("feels_like").innerHTML = `Feels like: ${weather.current.feelslike_c}°`;
+    document.getElementById("weather_icon").src = `https:${weather.current.condition.icon}`;
     document.getElementById("error_message").innerHTML = "";
 }
 
@@ -17,6 +19,8 @@ function displayError(error_message) {
     document.getElementById("error_message").innerHTML = error_message;
     document.getElementById("forecast").innerHTML = "";
     document.getElementById("location").innerHTML = "";
+    document.getElementById("location_name").innerHTML = "";
+    document.getElementById("feels_like").innerHTML = "";
     document.getElementById("temperature").innerHTML = "";
     document.getElementById("weather_icon").src = "";
 }
@@ -41,7 +45,7 @@ async function returnSearchResult() {
     const weather = await getWeather(url);
 
     if (isValidWeatherReport(weather)) {
-        displayResult(weather.current);
+        displayResult(weather);
     }
 
     switch(weather.error.code) {

@@ -25,7 +25,7 @@ function displayError(error_message) {
     document.getElementById("weather_icon").src = "";
 }
 
-function concatURL() {
+function createURL() {
     return (`${API_URL}key=${API_KEY}&q=${locationName.q.value}`);
 }
 
@@ -41,7 +41,7 @@ function isValidWeatherReport(weatherReport) {
 }
 
 async function returnSearchResult() {
-    const url = concatURL();
+    const url = createURL();
     const weather = await getWeather(url);
 
     if (isValidWeatherReport(weather)) {

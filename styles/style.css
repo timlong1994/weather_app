@@ -153,8 +153,12 @@ form {
     }
 
     #country {
-        font-size: 24pt;
+        font-size: 20pt;
         font-weight: 600;
+    }
+
+    #location {
+        font-size: 28pt;
     }
     
     #temperature {
@@ -183,7 +187,6 @@ form {
         height: 40px;
     }
 }
-
 
 /* Desktop Breakpoint */
 @media only screen and (min-width: 850px) {
